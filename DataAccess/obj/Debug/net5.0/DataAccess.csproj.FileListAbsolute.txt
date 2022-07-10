@@ -1,0 +1,15 @@
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\bin\Debug\net5.0\DataAccess.deps.json
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\bin\Debug\net5.0\DataAccess.dll
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\bin\Debug\net5.0\DataAccess.pdb
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\bin\Debug\net5.0\Entities.dll
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\bin\Debug\net5.0\Entities.pdb
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CopyComplete
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.dll
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\refint\DataAccess.dll
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.pdb
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
