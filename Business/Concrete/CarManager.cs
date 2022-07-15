@@ -16,9 +16,17 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
+
         public void Add(Car car)
         {
-            _carDal.Add(car);
+            if (car.DailyPrice > 0 && car.Name.Length >= 2)
+            {
+                _carDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Couldn't add to db");
+            }
         }
 
         public void Delete(Car car)
@@ -31,9 +39,19 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public List<Car> GetById(int carId)
+        public List<Car> GetCarsByBrandId(int brandId)
         {
-            return _carDal.GetById(carId);
+            return _carDal.GetAll(p => p.BrandId == brandId);
+        }
+
+        public List<Car> GetCarsByColorId(int colorId)
+        {
+            return _carDal.GetAll(p => p.ColorId == colorId);
+        }
+
+        public Car GetCarsById(int Id)
+        {
+            return _carDal.Get(p => p.Id == Id);
         }
 
         public void Update(Car car)
