@@ -15,3 +15,5 @@ C:\Users\batuh\source\repos\ReCapProject\Business\obj\Debug\net5.0\Business.dll
 C:\Users\batuh\source\repos\ReCapProject\Business\obj\Debug\net5.0\refint\Business.dll
 C:\Users\batuh\source\repos\ReCapProject\Business\obj\Debug\net5.0\Business.pdb
 C:\Users\batuh\source\repos\ReCapProject\Business\obj\Debug\net5.0\ref\Business.dll
+C:\Users\batuh\source\repos\ReCapProject\Business\bin\Debug\net5.0\Core.dll
+C:\Users\batuh\source\repos\ReCapProject\Business\bin\Debug\net5.0\Core.pdb

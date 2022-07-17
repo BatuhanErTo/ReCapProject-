@@ -13,3 +13,5 @@ C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.
 C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\refint\DataAccess.dll
 C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\DataAccess.pdb
 C:\Users\batuh\source\repos\ReCapProject\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\bin\Debug\net5.0\Core.dll
+C:\Users\batuh\source\repos\ReCapProject\DataAccess\bin\Debug\net5.0\Core.pdb

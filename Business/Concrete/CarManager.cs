@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entities.Concrete;
 using Business.Abstract;
 using DataAccess.Abstract;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -17,7 +18,7 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public void Add(Car car)
+        public void Insert(Car car)
         {
             if (car.DailyPrice > 0 && car.Name.Length >= 2)
             {
@@ -57,6 +58,11 @@ namespace Business.Concrete
         public void Update(Car car)
         {
             _carDal.Update(car);
+        }
+
+        public List<CarDetailsDto> GetCarsDetails()
+        {
+            return _carDal.GetCarDetails();
         }
     }
 

@@ -59,3 +59,5 @@ C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\runtimes\win
 C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Core.dll
+C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Core.pdb
