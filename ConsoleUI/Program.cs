@@ -11,14 +11,9 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //CarTest(); 
-            //BrandTest(); => it passed all of the test
-            //ColorTest(); => it passed all of the test
-            CarManager carManager = new CarManager(new EfCarDal());
-            var cars = carManager.GetCarsDetails();
-            foreach (var car in cars)
-            {
-                Console.WriteLine(car.CarName+" "+car.BrandName+" "+car.ColorName+" "+car.DailyPrice);
-            }
+            BrandTest();
+            //ColorTest(); 
+            
         }
 
         private static void ColorTest()
@@ -50,7 +45,13 @@ namespace ConsoleUI
                 Name = "Renault",
                 Id = 2,
             };
-            brandManager.Update(brand2);    
+            Brand brand3 = new Brand
+            {
+                Name = "Fiat",
+                Id = 4,
+            };
+            var result = brandManager.Insert(brand3);
+            Console.WriteLine(result.Message);
         }
 
         private static void CarTest()
