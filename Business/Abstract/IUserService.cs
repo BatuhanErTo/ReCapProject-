@@ -9,8 +9,7 @@ using Entities.Concrete;
 namespace Business.Abstract
 {
     public interface IUserService
-    {
-        //GetAll, GetById, Insert, Update, Delete.
+    { 
         IResult Insert(User user);
         IResult Update(User user);
         IResult Delete(User user);

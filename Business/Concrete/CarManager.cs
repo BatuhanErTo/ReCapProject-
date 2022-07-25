@@ -25,10 +25,12 @@ namespace Business.Concrete
             if (car.DailyPrice > 0 && car.Name.Length >= 2)
             {
                 _carDal.Add(car);
+                return new SuccessResult(Messages.CarAdded);
             }
             else
             {
                 Console.WriteLine("Couldn't add to db");
+                return new ErrorResult();
             }
         }
 
