@@ -11,9 +11,45 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //CarTest(); 
-            BrandTest();
+            //BrandTest();
             //ColorTest(); 
-            
+            //UserTest();
+            //CustomerTest();
+        }
+
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            Customer customer = new Customer
+            {
+                CompanyName = "Daimler",
+                UserId = 1,
+                Id = 1
+            };
+            customerManager.Insert(customer);
+        }
+
+        private static void UserTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            User user = new User
+            {
+                Id = 1,
+                FirstName = "Batuhan",
+                LastName = "Erol",
+                Email = "bataer57@gmail.com",
+                Password = "xyt5_3"
+            };
+            User user2 = new User
+            {
+                Id = 2,
+                FirstName = "Tuana",
+                LastName = "Erol",
+                Email = "tuer57@gmail.com",
+                Password = "xyt5_3"
+            };
+            var result = userManager.Insert(user);
+            Console.WriteLine(result.Success);
         }
 
         private static void ColorTest()
@@ -29,7 +65,12 @@ namespace ConsoleUI
                 Name = "DarkRed",
                 Id = 2
             };
-            colorManager.Update(color2);
+            Color color3 = new Color
+            {
+                Name = "Blue",
+                Id = 3
+            };
+            colorManager.Insert(color3);
         }
 
         private static void BrandTest()
