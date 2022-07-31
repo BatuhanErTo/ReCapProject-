@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -20,21 +22,20 @@ namespace Business.Concrete
         }
         public IResult Insert(Rental rental)
         {
-            if (rental.ReturnDate < DateTime.Now || rental.ReturnDate == null)
-            {
-                return new ErrorResult(Messages.ErrorRentalAdded);
-            }
+            ValidationTool.Validate(new RentalValidator(), rental);
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.RentalAdded);
         }
 
         public IResult Update(Rental rental)
         {
+            ValidationTool.Validate(new RentalValidator(), rental);
             _rentalDal.Update(rental);
             return new SuccessResult();
         }
         public IResult Delete(Rental rental)
         {
+            ValidationTool.Validate(new RentalValidator(), rental);
             _rentalDal.Delete(rental);
             return new SuccessResult();
         }

@@ -9,6 +9,8 @@ using DataAccess.Abstract;
 using Entities.DTOs;
 using Core.Utilities.Results;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 
 namespace Business.Concrete
 {
@@ -22,20 +24,19 @@ namespace Business.Concrete
 
         public IResult Insert(Car car)
         {
-            if (car.DailyPrice > 0 && car.Name.Length >= 2)
-            {
-                _carDal.Add(car);
-                return new SuccessResult(Messages.CarAdded);
-            }
-            else
-            {
-                Console.WriteLine("Couldn't add to db");
-                return new ErrorResult();
-            }
+            ValidationTool.Validate(new CarValidator(),car);
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
         }
-
+        public IResult Update(Car car)
+        {
+            ValidationTool.Validate(new CarValidator(), car);
+            _carDal.Update(car);
+            return new SuccessResult(Messages.CarUpdated);
+        }
         public IResult Delete(Car car)
         {
+            ValidationTool.Validate(new CarValidator(), car);
             _carDal.Delete(car);
             return new SuccessResult(Messages.CarDeleted);
         }
@@ -57,13 +58,7 @@ namespace Business.Concrete
 
         public IDataResult<Car> GetCarsById(int Id)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == Id),Messages.CarListed);
-        }
-
-        public IResult Update(Car car)
-        {
-            _carDal.Update(car);
-            return new SuccessResult(Messages.CarUpdated);
+            return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == Id), Messages.CarListed);
         }
 
         public IDataResult<List<CarDetailsDto>> GetCarsDetails()

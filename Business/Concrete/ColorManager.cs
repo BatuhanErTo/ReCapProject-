@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using DataAccess.Abstract;
 using Core.Utilities.Results;
 using Business.Constants;
+using Core.CrossCuttingConcerns.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -22,17 +24,20 @@ namespace Business.Concrete
 
         public IResult Insert(Color color)
         {
+            ValidationTool.Validate(new ColorValidator(), color);
             _colorDal.Add(color);
             return new SuccessResult(Messages.ColorAdded);
         }
 
         public IResult Update(Color color)
         {
+            ValidationTool.Validate(new ColorValidator(), color);
             _colorDal.Update(color);
             return new SuccessResult(Messages.ColorUpdated);
         }
         public IResult Delete(Color color)
         {
+            ValidationTool.Validate(new ColorValidator(), color);
             _colorDal.Delete(color);
             return new SuccessResult(Messages.ColorDeleted);
         }

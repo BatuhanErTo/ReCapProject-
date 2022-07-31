@@ -1,8 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,17 +24,20 @@ namespace Business.Concrete
         }
         public IResult Insert(Brand brand)
         {
+            ValidationTool.Validate(new BrandValidator(),brand);
             _brandDal.Add(brand);
             return new SuccessResult(Messages.BrandAdded); 
         }
 
         public IResult Update(Brand brand)
         {
+            ValidationTool.Validate(new BrandValidator(), brand);
             _brandDal.Update(brand);
             return new SuccessResult(Messages.BrandUpdated);
         }
         public IResult Delete(Brand brand)
         {
+            ValidationTool.Validate(new BrandValidator(), brand);
             _brandDal.Delete(brand);
             return new SuccessResult(Messages.BrandDeleted);
         }

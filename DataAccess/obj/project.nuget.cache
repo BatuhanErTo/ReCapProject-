@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qwBfTQ3vD5NVL/w2dXyCsw/uo6skeAxWXBl7XYvvizHLuvFHuzwq0umMqoC+Jbzvmhabqo7IX+RU8unmGK78Sw==",
+  "dgSpecHash": "CbiiHoKniBVQS8EX0QKNjOn++WGy/GG30W6tdYmFxc/Vt/d0/UMqc1sDWvENjMgWFPTCMld5RltkDpZSgDWiwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\batuh\\source\\repos\\ReCapProject\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\batuh\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
     "C:\\Users\\batuh\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\batuh\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\batuh\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

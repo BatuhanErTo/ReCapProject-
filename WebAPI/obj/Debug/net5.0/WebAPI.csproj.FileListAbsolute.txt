@@ -60,3 +60,9 @@ C:\Users\batuh\source\repos\ReCapProject\WebAPI\obj\Debug\net5.0\refint\WebAPI.d
 C:\Users\batuh\source\repos\ReCapProject\WebAPI\obj\Debug\net5.0\WebAPI.pdb
 C:\Users\batuh\source\repos\ReCapProject\WebAPI\obj\Debug\net5.0\WebAPI.genruntimeconfig.cache
 C:\Users\batuh\source\repos\ReCapProject\WebAPI\obj\Debug\net5.0\ref\WebAPI.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extensions.DependencyInjection.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extras.DynamicProxy.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
