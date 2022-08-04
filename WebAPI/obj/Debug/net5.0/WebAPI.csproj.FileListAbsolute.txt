@@ -66,3 +66,6 @@ C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extras.
 C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\batuh\source\repos\ReCapProject\WebAPI\bin\Debug\net5.0\System.IO.Pipelines.dll
