@@ -14,11 +14,10 @@ namespace WebAPI.Controllers
         {
             _carImageService = carImageService;
         }
-
         [HttpPost("add")]
-        public IActionResult Add([FromForm] IFormFile file, [FromForm] CarImage carImage)
+        public IActionResult Add([FromForm] IFormFile formFile,[FromForm] CarImage carImage)
         {
-            var result = _carImageService.Add(file, carImage);
+            var result = _carImageService.Add(formFile, carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -27,7 +26,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(CarImage carImage)
+        public IActionResult Delete([FromForm] CarImage carImage)
         {
             var result = _carImageService.Delete(carImage);
             if (result.Success)
@@ -38,9 +37,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update([FromForm] IFormFile file, [FromForm] CarImage carImage)
+        public IActionResult Update([FromForm] IFormFile formFile, [FromForm]CarImage carImage)
         {
-            var result = _carImageService.Update(file, carImage);
+            var result = _carImageService.Update(formFile,carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -48,7 +47,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetAll")]
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var result = _carImageService.GetAll();
@@ -59,7 +58,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetByCarId")]
+        [HttpGet("getbycarid")]
         public IActionResult GetByCarId(int carId)
         {
             var result = _carImageService.GetByCarId(carId);
@@ -69,7 +68,5 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
-        
     }
 }
