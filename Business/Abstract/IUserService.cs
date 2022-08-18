@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Entities.Concrete;
 
@@ -16,5 +17,7 @@ namespace Business.Abstract
 
         IDataResult<User> GetById(int userId);
         IDataResult<List<User>> GetAll();
+
+        IDataResult<List<OperationClaim>> GetClaims(User user);
     }
 }

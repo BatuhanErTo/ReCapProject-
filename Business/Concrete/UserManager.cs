@@ -2,6 +2,7 @@
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -47,6 +48,12 @@ namespace Business.Concrete
         public IDataResult<User> GetById(int userId)
         {
             return new SuccessDataResult<User>(_userDal.Get(u => u.Id == userId));
+        }
+
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            _userDal.GetAll(u => u.Id == user.Id);
+            return new SuccessDataResult<List<OperationClaim>>();
         }
     }
 }
