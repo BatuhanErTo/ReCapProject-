@@ -50,6 +50,15 @@ namespace Business.Constants
 
         public static string CarImageUpdatedSuccesfully = "Resim başarıyla güncellendi.";
 
-        public static string UserNotFound = "Girilen kullanıcı bulunamadı.";
+        public static string UserNotFound = "Kullanıcı bulunamadı.";
+
+        public static string PasswordError = "Şifre hatalı.";
+        public static string SuccesfulLogin = "Başarılı giriş.";
+
+        public static string UserAlreadyExist = "Bu kullanıcı zaten mevcut.";
+
+        public static string UserRegistered = "Kullanıcı sisteme kayıt edilmiştir.";
+
+        public static string AccessTokenCreated = "Access token başarıyla oluşturuldu";
     }
 }

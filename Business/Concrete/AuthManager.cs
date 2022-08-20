@@ -2,6 +2,7 @@
 using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
+using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
 using Entities.DTOs;
 using System;
@@ -15,35 +16,63 @@ namespace Business.Concrete
     public class AuthManager : IAuthService
     {
         IUserService _userService;
+        ITokenHelper _tokenHelper;
 
-        public AuthManager(IUserService userService)
+        public AuthManager(IUserService userService,ITokenHelper tokenHelper)
         {
             _userService = userService;
+            _tokenHelper = tokenHelper;
         }
 
-        public IDataResult<AccessToken> CreateAccessToken()
+        public IDataResult<AccessToken> CreateAccessToken(User user)
         {
-            throw new NotImplementedException();
+            var claims = _userService.GetClaims(user);
+            var accessToken = _tokenHelper.CreateToken(user,claims);
+            return new SuccessDataResult<AccessToken>(accessToken,Messages.AccessTokenCreated);
         }
 
         public IDataResult<User> Login(UserForLogin userForLogin)
         {
-            var isValid = _userService.GetByMail(userForLogin.Email);
-            if (isValid == null)
+            var user = _userService.GetByMail(userForLogin.Email);
+            if (user == null)
             {
                 return new ErrorDataResult<User>(Messages.UserNotFound);
             }
+            var isValidPassword = HashingHelper.VerifyPasswordHash(userForLogin.Password,user.PasswordHash,user.PasswordSalt);
+            if (!isValidPassword)
+            {
+                return new ErrorDataResult<User>(Messages.PasswordError);
+            }
+            return new SuccessDataResult<User>(user,Messages.SuccesfulLogin);
 
         }
 
         public IDataResult<User> Register(UserForRegister userForRegister)
         {
-            throw new NotImplementedException();
+            byte[] passwordSalt;
+            byte[] passwordHash;
+            HashingHelper.CreatePasswordHash(userForRegister.Password,out passwordHash,out passwordSalt);
+            var user = new User
+            {
+                FirstName = userForRegister.FirtName,
+                LastName = userForRegister.LastName,
+                Email = userForRegister.Email,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                Status = true
+            };
+            _userService.Insert(user);  
+            return new SuccessDataResult<User>(user,Messages.UserRegistered);
         }
 
         public IResult UserExists(string email)
         {
-            throw new NotImplementedException();
+            var result = _userService.GetByMail(email);
+            if (result == null)
+            {
+                return new SuccessResult();
+            }
+            return new ErrorResult(Messages.UserAlreadyExist);
         }
     }
 }

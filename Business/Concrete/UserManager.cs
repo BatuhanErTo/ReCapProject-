@@ -50,16 +50,15 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(u => u.Id == userId));
         }
 
-        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        public List<OperationClaim> GetClaims(User user)
         {
-            _userDal.GetAll(u => u.Id == user.Id);
-            return new SuccessDataResult<List<OperationClaim>>();
+            return _userDal.GetClaims(user);
         }
 
-        public IDataResult<User> GetByMail(string email)
+        public User GetByMail(string email)
         {
-            _userDal.Get(u => u.Email == email);
-            return new SuccessDataResult<User>();
+            var user = _userDal.Get(u => u.Email == email);
+            return user;
         }
     }
 }
