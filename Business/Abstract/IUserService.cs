@@ -18,6 +18,7 @@ namespace Business.Abstract
         IDataResult<User> GetById(int userId);
         IDataResult<List<User>> GetAll();
 
+        IDataResult<User> GetByMail(string email);
         IDataResult<List<OperationClaim>> GetClaims(User user);
     }
 }

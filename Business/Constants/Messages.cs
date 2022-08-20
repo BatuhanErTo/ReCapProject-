@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,5 +49,7 @@ namespace Business.Constants
         public static string CarImageDeletedSuccessfully = "Resim başarıyla silindi";
 
         public static string CarImageUpdatedSuccesfully = "Resim başarıyla güncellendi.";
+
+        public static string UserNotFound = "Girilen kullanıcı bulunamadı.";
     }
 }
