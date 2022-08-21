@@ -3,6 +3,7 @@ using Business.Concrete;
 using DataAccess.Concrete.InMemory;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Core.Entities.Concrete;
 
 namespace ConsoleUI
 {
@@ -38,7 +39,7 @@ namespace ConsoleUI
                 FirstName = "Batuhan",
                 LastName = "Erol",
                 Email = "bataer57@gmail.com",
-                Password = "xyt5_3"
+                //Password = "xyt5_3"
             };
             User user2 = new User
             {
@@ -46,7 +47,7 @@ namespace ConsoleUI
                 FirstName = "Tuana",
                 LastName = "Erol",
                 Email = "tuer57@gmail.com",
-                Password = "xyt5_3"
+                //Password = "xyt5_3"
             };
             var result = userManager.Insert(user);
             Console.WriteLine(result.Success);

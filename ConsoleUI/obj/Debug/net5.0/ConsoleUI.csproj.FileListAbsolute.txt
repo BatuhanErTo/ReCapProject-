@@ -68,3 +68,4 @@ C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Castle.Core.
 C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\batuh\source\repos\ReCapProject\ConsoleUI\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
