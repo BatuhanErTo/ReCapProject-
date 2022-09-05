@@ -27,5 +27,35 @@ namespace DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }
         }
+
+        public List<CarDetailsDto> GetCarDetailsByBrandId(int brandId)
+        {
+            using (ReCapContext context = new ReCapContext())
+            {
+                var result = from c in context.Cars
+                             join b in context.Brands
+                             on c.BrandId equals b.Id
+                             join k in context.Colors
+                             on c.ColorId equals k.Id
+                             where(c.BrandId == brandId)
+                             select new CarDetailsDto { CarId = c.Id, BrandName = b.Name, CarName = c.Name, ColorName = k.Name, DailyPrice = c.DailyPrice };
+                return result.ToList();
+            }
+        }
+
+        public List<CarDetailsDto> GetCarDetailsByColorId(int colorId)
+        {
+            using (ReCapContext context = new ReCapContext())
+            {
+                var result = from c in context.Cars
+                             join b in context.Brands
+                             on c.BrandId equals b.Id
+                             join k in context.Colors
+                             on c.ColorId equals k.Id
+                             where (c.ColorId == colorId)
+                             select new CarDetailsDto { CarId = c.Id, BrandName = b.Name, CarName = c.Name, ColorName = k.Name, DailyPrice = c.DailyPrice };
+                return result.ToList();
+            }
+        }
     }
 }

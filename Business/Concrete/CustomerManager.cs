@@ -5,6 +5,7 @@ using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,11 @@ namespace Business.Concrete
         public IDataResult<Customer> GetById(int customerId)
         {
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == customerId));
-        }      
+        }
+
+        public IDataResult<List<CustomerDetailsDto>> GetAllCustomerDetails()
+        {
+            return new SuccessDataResult<List<CustomerDetailsDto>>(_customerDal.GetCustomerDetails());
+        }
     }
 }
