@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
     {
-        public List<CarDetailsDto> GetCarDetails()
+        public List<CarDetailsDto> GetCarDetails(Expression<Func<CarDetailsDto, bool>> filter = null)
         {
             using (ReCapContext context = new ReCapContext())
             {
@@ -23,38 +23,37 @@ namespace DataAccess.Concrete.EntityFramework
                        on c.BrandId equals b.Id
                        join k in context.Colors
                        on c.ColorId equals k.Id
-                       select new CarDetailsDto {CarId = c.Id,BrandName = b.Name,CarName = c.Name,ColorName = k.Name,DailyPrice = c.DailyPrice};
-                return result.ToList();
-            }
-        }
-
-        public List<CarDetailsDto> GetCarDetailsByBrandId(int brandId)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                var result = from c in context.Cars
-                             join b in context.Brands
-                             on c.BrandId equals b.Id
-                             join k in context.Colors
-                             on c.ColorId equals k.Id
-                             where(c.BrandId == brandId)
-                             select new CarDetailsDto { CarId = c.Id, BrandName = b.Name, CarName = c.Name, ColorName = k.Name, DailyPrice = c.DailyPrice };
-                return result.ToList();
-            }
-        }
-
-        public List<CarDetailsDto> GetCarDetailsByColorId(int colorId)
-        {
-            using (ReCapContext context = new ReCapContext())
-            {
-                var result = from c in context.Cars
-                             join b in context.Brands
-                             on c.BrandId equals b.Id
-                             join k in context.Colors
-                             on c.ColorId equals k.Id
-                             where (c.ColorId == colorId)
-                             select new CarDetailsDto { CarId = c.Id, BrandName = b.Name, CarName = c.Name, ColorName = k.Name, DailyPrice = c.DailyPrice };
-                return result.ToList();
+                       select new CarDetailsDto {
+                           CarId = c.Id,
+                           BrandId = b.Id,
+                           BrandName = b.Name,
+                           CarName = c.Name,
+                           ColorId = k.Id,
+                           ColorName = k.Name,
+                           DailyPrice = c.DailyPrice,
+                           Description = c.Description,
+                           ModelYear = c.ModelYear,
+                           CarImage = ((from ci in context.CarImages
+                                        where (c.Id == ci.CarId)
+                                        select new CarImage
+                                        {
+                                            Id = ci.Id,
+                                            CarId = ci.CarId,
+                                            Date = ci.Date,
+                                            ImagePath = ci.ImagePath
+                                        }).ToList()).Count == 0
+                                                    ? new List<CarImage> { new CarImage { Id = -1, CarId = c.Id, Date = DateTime.Now, ImagePath = "DefaultImage.jpg" } }
+                                                    : (from ci in context.CarImages
+                                                       where (c.Id == ci.CarId)
+                                                       select new CarImage
+                                                       {
+                                                           Id = ci.Id,
+                                                           CarId = ci.CarId,
+                                                           Date = ci.Date,
+                                                           ImagePath = ci.ImagePath
+                                                       }).ToList()
+                       };
+                return filter == null ? result.ToList():result.Where(filter).ToList();
             }
         }
     }

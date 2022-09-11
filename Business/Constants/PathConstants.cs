@@ -9,6 +9,6 @@ namespace Business.Constants
     public static class PathConstants
     {
         public static string ImagesRoot = "wwwroot\\Uploads\\Images\\";
-        public static string DefaultImage = "wwwroot\\Uploads\\Images\\DefaultImages";     
+        public static string DefaultImage = "wwwroot\\Uploads\\DefaultImages";     
     }
 }

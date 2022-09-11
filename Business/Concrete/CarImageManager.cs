@@ -26,7 +26,11 @@ namespace Business.Concrete
 
         public IResult Add(IFormFile formFile, CarImage carImage)
         {
-            BusinessRules.Run(CheckCarImageCount(carImage.CarId));
+            var result = BusinessRules.Run(CheckCarImageCount(carImage.CarId));
+            if (result != null)
+            {
+                return new ErrorResult(Messages.CarImageCountExceeded);
+            }
             carImage.ImagePath = _fileHelper.Add(formFile, PathConstants.ImagesRoot);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
@@ -39,11 +43,16 @@ namespace Business.Concrete
             _carImageDal.Delete(carImage);
             return new SuccessResult(Messages.CarImageDeletedSuccessfully);
         }
-
+        public IResult Update(IFormFile formFile, CarImage carImage)
+        {
+            carImage.ImagePath = _fileHelper.Update(formFile, PathConstants.ImagesRoot + carImage.ImagePath, PathConstants.ImagesRoot);
+            carImage.Date = DateTime.Now;
+            _carImageDal.Update(carImage);
+            return new SuccessResult(Messages.CarImageUpdatedSuccesfully);
+        }
         public IDataResult<List<CarImage>> GetAll()
         {
-            _carImageDal.GetAll();
-            return new SuccessDataResult<List<CarImage>>();
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
         public IDataResult<List<CarImage>> GetByCarId(int carId)
@@ -57,25 +66,16 @@ namespace Business.Concrete
         }
 
         public IDataResult<List<CarImage>> GetByImageId(int imageId)
-             {
-            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.Id == imageId));
-        }
-
-        public IResult Update(IFormFile formFile, CarImage carImage)
         {
-            carImage.ImagePath = _fileHelper.Update(formFile,PathConstants.ImagesRoot+carImage.ImagePath,PathConstants.ImagesRoot);
-            carImage.Date = DateTime.Now;
-            _carImageDal.Update(carImage);
-            return new SuccessResult(Messages.CarImageUpdatedSuccesfully);
-            // after the update operations carId become 0.Solve that.
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.Id == imageId));
         }
 
         private IResult CheckCarImageCount(int carId)
         {
-            var result = _carImageDal.GetAll(c => c.CarId == carId).Count;
-            if (result > 5)
+            var result = _carImageDal.GetAll(c => c.CarId == carId);
+            if (result.Count >= 5)
             {
-                return new ErrorResult(Messages.CarImageCountExceeded);
+                return new ErrorResult();
             }
             return new SuccessResult();
         }

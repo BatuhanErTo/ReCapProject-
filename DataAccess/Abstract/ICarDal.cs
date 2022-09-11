@@ -6,13 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace DataAccess.Abstract
 {
     public interface ICarDal : IEntityRepository<Car>
     {
-        List<CarDetailsDto> GetCarDetails();
-        List<CarDetailsDto> GetCarDetailsByBrandId(int brandId);
-        List<CarDetailsDto> GetCarDetailsByColorId(int colorId);
+        List<CarDetailsDto> GetCarDetails(Expression<Func<CarDetailsDto, bool>> filter = null);
     }
 }

@@ -23,6 +23,7 @@ namespace Business.Abstract
         IResult Delete(Car car);
         IDataResult<List<CarDetailsDto>> GetCarDetailsByBrandId(int brandId);
         IDataResult<List<CarDetailsDto>> GetCarDetailsByColorId(int colorId);
+        IDataResult<List<CarDetailsDto>> GetCarsDetailsByCarId(int carId);
     }
 
 }
