@@ -21,6 +21,7 @@ namespace Business.Constants
 
         public static string ColorAdded = "Renk bilgisi eklendi.";
 
+        internal static string StringMustConsistOfNumbersOnly = "Girilen bilgi rakamlardan oluşmalı.";
         public static string ColorUpdated = "Renk bilgisi güncellendi.";
 
         public static string ColorDeleted = "Renk bilgisi silindi.";

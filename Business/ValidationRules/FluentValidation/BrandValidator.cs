@@ -12,8 +12,8 @@ namespace Business.ValidationRules.FluentValidation
     {
         public BrandValidator()
         {
-            RuleFor(b => b.Name).NotEmpty();
-            RuleFor(b => b.Name).MinimumLength(2);
+            RuleFor(b => b.Name).NotEmpty().WithMessage("Marka ismi boş geçilemez");
+            RuleFor(b => b.Name).MinimumLength(2).WithMessage("Marka ismi 2 harften küçük olamaz");
         }
     }
 }
